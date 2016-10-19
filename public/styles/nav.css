@@ -10,14 +10,12 @@
     position: fixed;
     top: 0;
     width: 100%;
-
 }
 
 #nav-bar .logo {
     float:left;
     height: 80px;
     width: 80px;
-
 }
 
 #nav-bar .header {
@@ -26,5 +24,4 @@
   font-size: xx-large;
   color: #e8fdff;
   line-height: 2.5;
-
 }

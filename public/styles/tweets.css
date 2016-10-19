@@ -1,0 +1,89 @@
+#thetweets {
+    border-radius: 8px;
+    border: 1px solid #bdb9b9;
+    background: white;
+    padding: 10;
+    margin-right: 2em;
+    margin-left: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: auto;
+    opacity: 0.5;
+}
+
+#thetweets:hover {
+  opacity: 1.0;
+}
+/*HEADER*/
+#thetweets article header {
+  background-color: #eeeeee;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 10px;
+  height: 70px;
+
+}
+
+#thetweets .name {
+  float: left;
+  margin-top: 0;
+}
+
+#thetweets .handle {
+  color: #bdb9b9;
+  float: right;
+  margin-top: 0;
+
+}
+
+#thetweets .avatar {
+  border-radius: 8px;
+  width: 60px;
+  margin-right: 10px;
+  padding: 0;
+  float: left;
+}​
+/*MAIN*/
+#thetweets main {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+#thetweets main p {
+  margin-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 20PX;
+
+}
+/*FOOTER*/
+
+#thetweets footer {
+  border-top: 1px solid #bdb9b9;
+  padding: 10px;
+}
+#thetweets footer p {
+  display: inline;
+  font-size: x-small;
+}
+#thetweets footer ul {
+  list-style-type: none;
+  display: inline;
+}
+#thetweets footer li {
+  float: right;
+  color: #00a087;
+  font-size: small;
+}
+
+
+
+
+
+
+
+
+
+
+
+

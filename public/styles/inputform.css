@@ -6,8 +6,7 @@ section.new-tweet {
     margin-right: 2em;
     margin-left: 2em;
     width: auto;
-    counter-increment:
-    height
+
 }
 
 .new-tweet form {
@@ -20,7 +19,7 @@ section.new-tweet {
 }
 .new-tweet h2 {
   margin-top: 0px;
-  border-bottom: 2px solid #244751
+  border-bottom: 2px solid #244751;
 }
 
 .new-tweet textarea {
