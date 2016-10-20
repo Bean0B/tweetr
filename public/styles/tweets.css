@@ -1,4 +1,4 @@
-#thetweets {
+.thetweets {
     border-radius: 8px;
     border: 1px solid #bdb9b9;
     background: white;
@@ -8,36 +8,36 @@
     margin-top: 2em;
     margin-bottom: 2em;
     width: auto;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
-#thetweets:hover {
+.thetweets:hover {
   opacity: 1.0;
 s
 }
 /*HEADER*/
-#thetweets article header {
+.thetweets header {
   background-color: #eeeeee;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 10px;
-  height: 70px;
+  height: 80px;
 
 }
 
-#thetweets .name {
+.thetweets .name {
   float: left;
   margin-top: 0;
 }
 
-#thetweets .handle {
+.thetweets .handle {
   color: #bdb9b9;
   float: right;
   margin-top: 0;
 
 }
 
-#thetweets .avatar {
+.thetweets img {
   border-radius: 8px;
   width: 60px;
   margin-right: 10px;
@@ -45,13 +45,13 @@ s
   float: left;
 }​
 /*MAIN*/
-#thetweets main {
+.thetweets main {
   margin-top: 10px;
   padding: 10px;
   background-color: white;
 }
 
-#thetweets main p {
+.thetweets main p {
   margin-left: 10px;
   padding-top: 20px;
   padding-bottom: 20PX;
@@ -59,24 +59,24 @@ s
 }
 /*FOOTER*/
 
-#thetweets footer {
+.thetweets footer {
   border-top: 1px solid #bdb9b9;
   padding: 10px;
 }
-#thetweets footer p {
+.thetweets footer p {
   display: inline;
   font-size: x-small;
 }
 
-#thetweets footer ul {
+/*.thetweets footer ul {
   list-style-type: none;
   display: inline;
-}
-#thetweets:hover footer li {
+}*/
+.thetweets:hover footer i {
   visibility: visible;
 }
 
-#thetweets footer li {
+.thetweets footer i {
   float: right;
   color: #00a087;
   font-size: small;
