@@ -13,7 +13,7 @@ section.new-tweet {
   width:100%;
 }
 
-.new-tweet span {
+.new-tweet .counter {
   float: right;
   font-style: italic;
 }
@@ -27,3 +27,11 @@ section.new-tweet {
   padding: 5px;
   max-width:100%;
 }
+
+section.new-tweet #errors {
+  font-style: bold;
+  color: red;
+
+
+}
+

@@ -7,52 +7,52 @@
  // Test / driver code (temporary). Eventually will get this from the server.
 
 $(function(){
-  var data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-    },
-    "created_at": 1461113796368
-  }
-];
+//   var data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
+//         "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
+//         "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+//       },
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+//         "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
+//         "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+//       },
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   },
+//   {
+//     "user": {
+//       "name": "Johann von Goethe",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+//         "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
+//         "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+//       },
+//       "handle": "@johann49"
+//     },
+//     "content": {
+//       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+//     },
+//     "created_at": 1461113796368
+//   }
+// ]
 
 
 //MAKE TWEETS INTO FEED ARTICLES
@@ -60,9 +60,9 @@ function renderTweets(arr) {
   for (var i = 0; i < arr.length; i++) {
     var currenTweet = arr[i]
     var $newtweet = createTweetElement(currenTweet)
-    $('#feed').append($newtweet)
-  }
- }
+    $('#feed').prepend($newtweet)
+  };
+ };
   //CREATE FEED ARTICLES
   function createTweetElement(tweobject) {
     var $tweet = $("<article>").addClass("thetweets");
@@ -84,19 +84,30 @@ function renderTweets(arr) {
     $tweet.children("footer").append(`<i class="fa fa-flag" aria-hidden="true"></i>`);
 
     return $tweet;
-  }
+  };
 
-  renderTweets(data);
+   //renderTweets(data);
 
 //POST TO /TWEETS hijax
+
+
   $('form').on('submit', function (event) {
     event.preventDefault();
-    $.ajax({
+    var text = $(".inputBox").val();
+     if (text == "") {
+      $('#errors').text("Nothing to say?").fadeIn().delay(1000).fadeOut();
+     } else if (text == null ) {
+      $('#errors').text("Nothing to say?").fadeIn().delay(1000).fadeOut();;
+     } else if (text.length > 140) {
+      $('#errors').text("Please type less").fadeIn().delay(1000).fadeOut();;
+     }else{
+      $.ajax({
       method: 'post',
       url: '/tweets',
       data: $(this).serialize(),
     });loadTweets();
-  });
+    }
+});
 
   //GET THOSE TWEETS
 
