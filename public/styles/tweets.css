@@ -55,7 +55,7 @@ s
   margin-left: 10px;
   padding-top: 20px;
   padding-bottom: 20PX;
-
+  word-wrap: break-word;
 }
 /*FOOTER*/
 
@@ -68,10 +68,6 @@ s
   font-size: x-small;
 }
 
-/*.thetweets footer ul {
-  list-style-type: none;
-  display: inline;
-}*/
 .thetweets:hover footer i {
   visibility: visible;
 }

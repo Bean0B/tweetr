@@ -6,7 +6,7 @@
 
  // Test / driver code (temporary). Eventually will get this from the server.
 
-$(document).ready(function(){
+$(function(){
   var data = [
   {
     "user": {
@@ -55,15 +55,15 @@ $(document).ready(function(){
 ];
 
 
-
+//MAKE TWEETS INTO FEED ARTICLES
 function renderTweets(arr) {
   for (var i = 0; i < arr.length; i++) {
     var currenTweet = arr[i]
     var $newtweet = createTweetElement(currenTweet)
-     $('#feed').append($newtweet)
+    $('#feed').append($newtweet)
   }
  }
-
+  //CREATE FEED ARTICLES
   function createTweetElement(tweobject) {
     var $tweet = $("<article>").addClass("thetweets");
     var time = Math.floor((Date.now() - tweobject.created_at)/8.64e+7)
@@ -88,8 +88,35 @@ function renderTweets(arr) {
 
   renderTweets(data);
 
+//POST TO /TWEETS hijax
+  $('form').on('submit', function (event) {
+    event.preventDefault();
+    $.ajax({
+      method: 'post',
+      url: '/tweets',
+      data: $(this).serialize(),
+    });loadTweets();
+  });
 
+  //GET THOSE TWEETS
 
-
+  function loadTweets() {
+    event.preventDefault();
+    $.ajax({
+      method: 'get',
+      url: '/tweets',
+      data: $(this).serialize(),
+      dataType: 'json'
+      }).done(function (data) {
+        renderTweets(data)
+      })
+    }
 
 });
+
+
+
+
+
+
+
