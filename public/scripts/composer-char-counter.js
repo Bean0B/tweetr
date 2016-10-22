@@ -12,7 +12,7 @@ $(".new-tweet textarea").on("keypress input", (function() {
       $(".new-tweet .counter").css({"color":"red"})
     }
     else if(text_remaining > 0) {
-      $(".new-tweet .counter").css({"color":"#244751"})
+      $(".new-tweet .counter").css({"color":"white"})
       };
 }));
 

@@ -1,11 +1,12 @@
-section.new-tweet {
+.new-tweet {
     border-radius: 8px;
     border: 1px solid #bdb9b9;
-    background: #EEEEEE;
+    background: #705F6C;
     padding: 20px;
     margin-right: 2em;
     margin-left: 2em;
     width: auto;
+    height:90%;
 
 }
 
@@ -16,10 +17,13 @@ section.new-tweet {
 .new-tweet .counter {
   float: right;
   font-style: italic;
+  margin-right: 10px;
+  color:#bdb9b9;
 }
 .new-tweet h2 {
   margin-top: 0px;
-  border-bottom: 2px solid #244751;
+  border-bottom: 2px solid #bdb9b9;
+  color: #FFFFFF;
 }
 
 .new-tweet textarea {
@@ -28,10 +32,14 @@ section.new-tweet {
   max-width:100%;
 }
 
-section.new-tweet #errors {
+.new-tweet input {
+  margin-left: 5px;
+  color: #705F6C;
+}
+
+.new-tweet #errors {
+  margin-left: 5px;
   font-style: bold;
-  color: red;
-
-
+  color: #FFFFFF;
 }
 
