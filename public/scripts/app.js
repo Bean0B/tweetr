@@ -61,7 +61,7 @@ function createTweetElement(tweobject) {
      } else if (text == null ) {
       $('#errors').text("Nothing to say?").fadeIn().delay(1000).fadeOut();;
      } else if (text.length > 140) {
-      $('#errors').text("Over character limit!").fadeIn().delay(1000).fadeOut();;
+      $('#errors').text("Over character limit!").fadeIn().delay(1000).fadeOut();
      }else{
       $.ajax({
         method: 'post',
