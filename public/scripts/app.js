@@ -10,9 +10,10 @@ $(function(){
 
   loadTweets()//get the tweets on pageload
 
+  $('.new-tweet').hide(); //focus in input field when compose button toggled
   $('.compose').click(function () { //compose button toggles input field
-   $('.new-tweet').slideToggle( function (){
-      $('.inputBox').focus() //focus in input field when compose button toggled
+    $('.new-tweet').slideToggle( function (){
+      $('.inputBox').focus()
     });
   });
 
@@ -25,7 +26,7 @@ function renderTweets(arr) {
   };
  };
   //CREATE FEED ARTICLES/More Tweets
-  function createTweetElement(tweobject) {
+function createTweetElement(tweobject) {
     var $tweet = $("<article>").addClass("thetweets");
     var time = Math.floor((Date.now() - tweobject.created_at)/8.64e+7)
 
@@ -88,10 +89,3 @@ function renderTweets(arr) {
 
 
 });
-
-
-
-
-
-
-
