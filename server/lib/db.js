@@ -3,11 +3,7 @@
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://127.0.0.1:27017/tweeter";
 
-module.exports = {
-  connect: (callback) => {
-    MongoClient.connect(MONGODB_URI, (err, db) => {
-
-   let collection = db.collection("tweets")
+let collection;
 
   const Tweets = {
     saveTweet: (tweet, cb) => {
@@ -23,9 +19,15 @@ module.exports = {
       })
     }
 }
-  callback(Tweets);
 
 
+module.exports = {
+  connect: (callback) => {
+
+    MongoClient.connect(MONGODB_URI, (err, db) => {
+
+      collection = db.collection("tweets")
+      callback(Tweets);
     });
   }
 }
