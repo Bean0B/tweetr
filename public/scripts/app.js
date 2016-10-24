@@ -6,14 +6,13 @@
 
  // Test / driver code (temporary). Eventually will get this from the server.
 
-$(function(){
+$(document).ready(function(){
 
   loadTweets()//get the tweets on pageload
 
-  $('.new-tweet').hide(); //focus in input field when compose button toggled
   $('.compose').click(function () { //compose button toggles input field
     $('.new-tweet').slideToggle( function (){
-      $('.inputBox').focus()
+      $('.inputBox').focus() //start typing when you toggle
     });
   });
 
@@ -31,14 +30,14 @@ function createTweetElement(tweobject) {
     var time = Math.floor((Date.now() - tweobject.created_at)/8.64e+7)
 
     $tweet.append("<header>");
-    $tweet.append("<main>");
+    $tweet.append("<section>");
     $tweet.append("<footer>");
     // HEADER
-    $tweet.children("header").append(`<img src= ${tweobject.user.avatars.regular} />`);
-    $tweet.children("header").append(`<h2 class= "name">${tweobject.user.name} </h2>`);
-    $tweet.children("header").append(`<p class= "handle">${tweobject.user.handle} </p>`);
-    // MAIN
-    $tweet.children("main").append(`<p>${tweobject.content.text} </p>`);
+    $tweet.children("header").append(`<img src=${tweobject.user.avatars.regular} />`);
+    $tweet.children("header").append(`<h2 class="name">${tweobject.user.name} </h2>`);
+    $tweet.children("header").append(`<p class="handle">${tweobject.user.handle} </p>`);
+    // TWEETCONTENT
+    $tweet.children("section").append(`<p>${tweobject.content.text} </p>`);
     // FOOTER
     $tweet.children("footer").append(`<p>${time} days ago </p>`);
     $tweet.children("footer").append(`<i class="fa fa-heart" aria-hidden="true"></i>`);
@@ -56,13 +55,11 @@ function createTweetElement(tweobject) {
   $('form').on('submit', function (event) {
     event.preventDefault();
     var text = $(".inputBox").val();
-     if (text == "") {
+    if (!text) {
       $('#errors').text("Nothing to say?").fadeIn().delay(1000).fadeOut();
-     } else if (text == null ) {
-      $('#errors').text("Nothing to say?").fadeIn().delay(1000).fadeOut();;
-     } else if (text.length > 140) {
+    } else if (text.length > 140) {
       $('#errors').text("Over character limit!").fadeIn().delay(1000).fadeOut();
-     }else{
+    } else{
       $.ajax({
         method: 'post',
         url: '/tweets',
@@ -73,9 +70,7 @@ function createTweetElement(tweobject) {
       loadTweets();
     }
   });
-
-  //GET THOSE TWEETS
-
+//GET THOSE TWEETS
   function loadTweets() {
     $.ajax({
       method: 'get',
